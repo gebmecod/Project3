@@ -5,7 +5,6 @@
 #include "Enemy.h"
 #include "Rocket.h"
 
-
 sf::Vector2f viewSize(1024, 768);
 sf::VideoMode vm(viewSize.x, viewSize.y);
 sf::RenderWindow window(vm, "2D JUMP SHOOTER", sf::Style::Default);
@@ -24,6 +23,9 @@ void reset();
 
 sf::Texture bgTexture;
 sf::Sprite bgSprite;
+
+sf::Texture titleTexture;
+sf::Sprite titleSprite;
 
 Hero hero;
 
@@ -66,6 +68,10 @@ void init() {
 	bgTexture.loadFromFile("Assets/graphics/bg.png");
 	bgSprite.setTexture(bgTexture);
 
+	titleTexture.loadFromFile("Assets/graphics/title.png");
+	titleSprite.setTexture(titleTexture);
+	titleSprite.setOrigin(sf::Vector2f(-325, -10));
+
 
 
 	// Load font
@@ -79,14 +85,14 @@ void init() {
 
 	// Set Heading Text
 
-	headingText.setFont(headingFont);
+	/*headingText.setFont(headingFont);
 	headingText.setString("2D JUMP SHOOTER");
 	headingText.setCharacterSize(84);
 	headingText.setFillColor(sf::Color::Yellow);
 
 	sf::FloatRect headingbounds = headingText.getLocalBounds();
 	headingText.setOrigin(headingbounds.width / 2, headingbounds.height / 2);
-	headingText.setPosition(sf::Vector2f(viewSize.x * 0.5f, viewSize.y * 0.10f));
+	headingText.setPosition(sf::Vector2f(viewSize.x * 0.5f, viewSize.y * 0.10f));*/
 
 
 
@@ -111,7 +117,7 @@ void init() {
 
 	sf::FloatRect tutorialbounds = tutorialText.getLocalBounds();
 	tutorialText.setOrigin(tutorialbounds.width / 2, tutorialbounds.height / 2);
-	tutorialText.setPosition(sf::Vector2f(viewSize.x * 0.5f, viewSize.y * 0.20f));
+	tutorialText.setPosition(sf::Vector2f(viewSize.x * 0.5f, viewSize.y * 0.25f));
 
 	// Audio 
 	bgMusic.openFromFile("Assets/audio/bgMusic.ogg");
@@ -272,7 +278,7 @@ void draw() {
 
 
 	if (gameover) {
-
+		window.draw(titleSprite);
 		window.draw(headingText);
 		window.draw(tutorialText);
 	}
