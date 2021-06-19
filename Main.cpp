@@ -40,11 +40,9 @@ bool gameover = true;
 
 // Text
 
-sf::Font headingFont;
 sf::Font scoreFont;
 sf::Font tutorialFont;
 
-sf::Text headingText;
 sf::Text scoreText;
 sf::Text tutorialText;
 
@@ -76,24 +74,9 @@ void init() {
 
 	// Load font
 
-	headingFont.loadFromFile("Assets/fonts/waltographUI.ttf");
-
 	scoreFont.loadFromFile("Assets/fonts/Arial.ttf");
 
 	tutorialFont.loadFromFile("Assets/fonts/SnackerComic.ttf");
-
-
-	// Set Heading Text
-
-	/*headingText.setFont(headingFont);
-	headingText.setString("2D JUMP SHOOTER");
-	headingText.setCharacterSize(84);
-	headingText.setFillColor(sf::Color::Yellow);
-
-	sf::FloatRect headingbounds = headingText.getLocalBounds();
-	headingText.setOrigin(headingbounds.width / 2, headingbounds.height / 2);
-	headingText.setPosition(sf::Vector2f(viewSize.x * 0.5f, viewSize.y * 0.10f));*/
-
 
 
 	// Set Score Text
@@ -279,7 +262,6 @@ void draw() {
 
 	if (gameover) {
 		window.draw(titleSprite);
-		window.draw(headingText);
 		window.draw(tutorialText);
 	}
 	else {
